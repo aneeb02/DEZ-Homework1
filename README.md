@@ -54,10 +54,14 @@ WHERE
 SELECT 
     CAST(lpep_pickup_datetime AS DATE) AS pickup_day,
     MAX(trip_distance) AS maximum_distance
-FROM greentrips_data
-WHERE trip_distance < 100
-GROUP BY CAST(lpep_pickup_datetime AS DATE)
-ORDER BY maximum_distance DESC
+FROM 
+    greentrips_data
+WHERE 
+    trip_distance < 100
+GROUP BY
+    CAST(lpep_pickup_datetime AS DATE)
+ORDER BY 
+    maximum_distance DESC
 LIMIT 1;
 
 | pickup_day | maximum_dist |
