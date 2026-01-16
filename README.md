@@ -31,3 +31,20 @@ pip 25.3 from /usr/local/lib/python3.13/site-packages/pip (python 3.13)
 
 ### Answer: postgres:5432 , db:5432
 
+
+## Question 3. Counting short trips
+
+### query used:
+
+```
+SELECT 
+    COUNT(*) 
+FROM 
+    greentrips_data 
+WHERE 
+    (lpep_pickup_datetime >= '2025-11-01' AND lpep_pickup_datetime < '2025-12-01')
+    AND trip_distance <= 1;
+```
+
+The result returned is 8007
+
