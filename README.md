@@ -50,6 +50,7 @@ WHERE
 
 ## Question 4. Longest trip for each day
 
+query used:
 ```sql
 SELECT 
     CAST(lpep_pickup_datetime AS DATE) AS pickup_day,
@@ -69,4 +70,33 @@ LIMIT 1;
 | 2025-11-14 | 88.03        |
 ```
 #### The date is 2025-11-14
+
+
+## Question 5. Biggest pickup zone
+
+query used:
+```sql
+SELECT 
+    g."PULocationID" AS pickup_loc,
+    t."Zone" AS pickup_zone,
+    SUM(g.total_amount) AS total_amount
+FROM
+    greentrips_data g
+JOIN 
+    taxi_zones t ON g."PULocationID" = t."LocationID"
+WHERE 
+    CAST(g.lpep_pickup_datetime AS DATE) = '2025-11-18'
+GROUP BY 
+    g."PULocationID", t."Zone"
+ORDER BY 
+    total_amount DESC
+LIMIT 1;
+
+| pickup_loc | amt          | pickup_zone      |
+|------------+--------------+-----------------|
+| 74  | 88.9281.920000000004| East Harlem North|
+
+```
+
+#### The Zone is East Harlem North
 
