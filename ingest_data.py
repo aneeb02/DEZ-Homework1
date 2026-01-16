@@ -43,12 +43,11 @@ parse_dates = [
 @click.option('--chunksize', default=100000, type=int, help='Chunk size for reading CSV')
 def run(pg_user, pg_pass, pg_host, pg_port, pg_db, year, month, target_table, chunksize):
     """Ingest NYC taxi data into PostgreSQL database."""
-    prefix = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow'
-    url = f'{prefix}/yellow_tripdata_{year}-{month:02d}.csv.gz'
+    url = f'green_tripdata_{year}-{month}.parquet'
 
     engine = create_engine(f'postgresql://{pg_user}:{pg_pass}@{pg_host}:{pg_port}/{pg_db}')
 
-    df_iter = pd.read_csv(
+    df_iter = pd.(
         url,
         dtype=dtype,
         parse_dates=parse_dates,

@@ -4,9 +4,9 @@ services:
     environment:
       POSTGRES_USER: "root"
       POSTGRES_PASSWORD: "root"
-      POSTGRES_DB: "ny_taxi"
+      POSTGRES_DB: "greentrip"
     volumes:
-      - "ny_taxi_postgres_data:/var/lib/postgresql/data"
+      - "greentrips_postgres_data:/var/lib/postgresql/data"
     ports:
       - "5432:5432"
 
@@ -20,6 +20,5 @@ services:
     ports:
       - "8085:80"
 volumes:
-  ny_taxi_postgres_data:
+  greentrips_postgres_data:
   pgadmin_data:
-  
