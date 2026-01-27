@@ -142,3 +142,8 @@ SELECT
 
 ```
 #### The Zone is Yorkville West
+
+
+## Question 7. Which of the following sequences describes the Terraform workflow for: 1) Downloading plugins and setting up backend, 2) Generating and executing changes, 3) Removing all resources? 
+
+### The correct answer is terraform init, terraform apply -auto-approve, terraform destroy
